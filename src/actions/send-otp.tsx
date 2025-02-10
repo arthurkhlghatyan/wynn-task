@@ -1,5 +1,6 @@
 'use server'
 
+import { moveStep } from '@/steps';
 import { z } from 'zod'
 
 const schema = z.object({
@@ -7,6 +8,5 @@ const schema = z.object({
 });
 
 export async function sendOTP(formData: FormData) {
-  // Fetch contact information
-  // Send user an OTP
+  await moveStep('next');
 }

@@ -1,6 +1,8 @@
 'use server'
 
+
 import { z } from 'zod'
+import { moveStep } from '../steps'
 
 const schema = z.object({
   // Personal information
@@ -15,6 +17,5 @@ const schema = z.object({
 });
 
 export async function createUser(formData: FormData) {
-  // Add user to database
-  // Store contact information
+  await moveStep('next');
 }
