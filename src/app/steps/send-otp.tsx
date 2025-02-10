@@ -4,6 +4,7 @@ import { SubmitButton } from "@/app/components/submit-button";
 export function SendOTP() {
   return (
     <form action={sendOTP}>
+      Send OTP
       <SubmitButton />
     </form>
   );
