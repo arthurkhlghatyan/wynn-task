@@ -10,6 +10,8 @@ export default {
       transparent: 'transparent',
       current: 'currentColor',
 
+      white: '#FFFFFF',
+
       green: "#006F62",
       brown: "#5A3A27",
       black: "#1D1F22",

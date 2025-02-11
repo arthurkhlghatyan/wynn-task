@@ -1,9 +1,10 @@
 'use client'
 
 import { goBack } from '@/actions/go-back'
+import { Button } from './button';
 
 export function BackButton() {
   return (
-    <button type='button' onClick={() => goBack()}>Back</button>
+    <Button variant='outline' type='button' onClick={() => goBack()}>Back</Button>
   )
 }

@@ -40,7 +40,7 @@ export function PersonalInfo() {
         <Field id="gender" label="Gender" info="Select gender..." required>
           <Select name="gender" required placeholder="Select gender..." options={genders} />
         </Field>
-        <Field id="residenceCountry" label="Your Residence Country" info="Select residence country...">
+        <Field id="residenceCountry" label="Your Residence Country" info="Select residence country..." required>
           <Select name="residenceCountry" required placeholder="Select residence country..." options={countries} />
         </Field>
       </WizardSection>

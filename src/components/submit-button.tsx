@@ -2,10 +2,12 @@
 
 import { useFormStatus } from 'react-dom'
 
+import { Button } from './button';
+
 export function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
-    <button type='submit' disabled={pending}>Next</button>
+    <Button type='submit' disabled={pending}>Next</Button>
   )
 }
