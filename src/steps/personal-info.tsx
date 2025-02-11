@@ -44,7 +44,9 @@ export function PersonalInfo() {
         </Field>
       </WizardSection>
       <WizardSection title="Contact Details">
-        Section content
+        <Field id="email" label="Email" info="Enter email address..." required>
+          <Input name="email" required autoComplete="off" placeholder="Enter email address..." />
+        </Field>
       </WizardSection>
       <SubmitButton />
     </form>
