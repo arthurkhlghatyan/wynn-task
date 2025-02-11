@@ -6,7 +6,7 @@ export function Input({ className, ...rest }: Props) {
   return (
     <input
       {...rest}
-      className={`${sen.className} ${className} rounded-sm border-2 border-solid border-darkGray outline-none w-full px-5 py-4`}
+      className={`${sen.className} rounded-sm border-2 border-solid border-darkGray outline-none w-full px-5 py-4 ${className}`}
     />
   )
 }

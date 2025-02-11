@@ -1,11 +1,7 @@
 import { PropsWithChildren } from "react";
 
-type Props = {
-  cols?: number;
-}
-
-export function FieldRow({ cols = 2, children }: PropsWithChildren<Props>) {
+export function FieldRow({ children }: PropsWithChildren) {
   return (
-    <div className={`grid grid-cols-${cols} gap-6`}>{children}</div>
+    <div className="sm:grid sm:grid-cols-2 sm:gap-6">{children}</div>
   );
 }

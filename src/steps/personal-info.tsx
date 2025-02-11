@@ -4,6 +4,7 @@ import { FieldRow } from '@/components/field-row';
 import { Field } from '@/components/field';
 import { Input } from '@/components/input';
 import { Select, Option } from '@/components/select';
+import { PhoneInput } from '@/components/phone-input';
 import { SubmitButton } from "@/components/submit-button";
 
 import countriesInJson from '@/countries.json'
@@ -46,6 +47,9 @@ export function PersonalInfo() {
       <WizardSection title="Contact Details">
         <Field id="email" label="Email" info="Enter email address..." required>
           <Input name="email" required autoComplete="off" placeholder="Enter email address..." />
+        </Field>
+        <Field id="phoneNumber" label="Phone Number" info="+971 (__) - ____" required>
+          <PhoneInput name="phoneNumber" autoComplete="off" required placeholder="Enter your phone number..." />
         </Field>
       </WizardSection>
       <SubmitButton />
