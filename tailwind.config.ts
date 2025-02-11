@@ -14,7 +14,9 @@ export default {
       brown: "#5A3A27",
       black: "#1D1F22",
       gray: '#F7F7F7',
-      red: "#B3261E"
+      red: "#B3261E",
+
+      darkGray: '#E8E9E9'
     }
   },
 

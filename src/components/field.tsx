@@ -18,7 +18,7 @@ export function Field({
   children
 }: PropsWithChildren<Props>) {
   return (
-    <div className={className}>
+    <div className={`${className} mb-6`}>
       <label
         htmlFor={id}
         data-testid="field-label"
