@@ -3,7 +3,26 @@ import { WizardSection } from '@/components/wizard-section';
 import { FieldRow } from '@/components/field-row';
 import { Field } from '@/components/field';
 import { Input } from '@/components/input';
+import { Select, Option } from '@/components/select';
 import { SubmitButton } from "@/components/submit-button";
+
+import countriesInJson from '@/countries.json'
+
+const countries: Option[] = countriesInJson.map((country) => ({
+  value: country.abbreviation,
+  label: country.country
+}));
+
+const genders: Option[] = [
+  {
+    value: 'male',
+    label: 'Male'
+  },
+  {
+    value: 'female',
+    label: 'Female'
+  }
+];
 
 export function PersonalInfo() {
   return (
@@ -14,9 +33,15 @@ export function PersonalInfo() {
             <Input name="firstName" required autoComplete="off" placeholder="Enter first name..." />
           </Field>
           <Field id="lastName" label="Last Name" info="Enter last name..." required>
-            <Input name="firstName" required autoComplete="off" placeholder="Enter last name..." />
+            <Input name="lastName" required autoComplete="off" placeholder="Enter last name..." />
           </Field>
         </FieldRow>
+        <Field id="gender" label="Gender" info="Select gender..." required>
+          <Select name="gender" required placeholder="Select gender..." options={genders} />
+        </Field>
+        <Field id="residenceCountry" label="Your Residence Country" info="Select residence country...">
+          <Select name="residenceCountry" required placeholder="Select residence country..." options={countries} />
+        </Field>
       </WizardSection>
       <WizardSection title="Contact Details">
         Section content
