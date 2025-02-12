@@ -36,7 +36,7 @@ const initialState = {
 }
 
 export function PersonalInfo() {
-  const [_, formAction] = useActionState(createUser, initialState);
+  const [, formAction] = useActionState(createUser, initialState);
 
   // In the new versions of React action trigger resets input values
   // But we need them to be preserved in case there are validation errors

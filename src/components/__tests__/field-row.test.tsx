@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { FieldRow } from '@/components/field-row'
 
 test('FieldRow renders 2 column grid', () => {

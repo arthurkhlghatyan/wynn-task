@@ -13,7 +13,7 @@ const initialState = {
 }
 
 export function SendOTP() {
-  const [_, formAction] = useActionState(sendOTP, initialState);
+  const [, formAction] = useActionState(sendOTP, initialState);
 
   // In the new versions of React action trigger resets input values
   // But we need them to be preserved in case there are validation errors

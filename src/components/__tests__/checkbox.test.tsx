@@ -1,4 +1,4 @@
-import { vi, expect, test } from 'vitest'
+import { expect, test } from 'vitest'
 import { render } from '@testing-library/react'
 import { Checkbox } from '@/components/checkbox'
 
