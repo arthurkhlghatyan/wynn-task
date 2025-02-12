@@ -18,7 +18,6 @@ export async function sendOTP(prevState: unknown, formData: FormData) {
 
   await moveStep('next');
 
-
   return {
     errors: null
   }

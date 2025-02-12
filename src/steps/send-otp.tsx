@@ -7,11 +7,23 @@ import { WizardSection } from "@/components/wizard-section";
 import { FieldRow } from "@/components/field-row";
 import { BackButton } from "@/components/back-button";
 import { SubmitButton } from "@/components/submit-button";
-import { RadioButton } from "@/components/radio-button";
+import { AuthWizardStage } from "@/components/auth-wizard-stage";
+import { RadioGroup, Option } from "@/components/radio-group";
 
 const initialState = {
   errors: null
 }
+
+const verificationOptions: Option[] = [
+  {
+    value: 'phone',
+    label: 'Send to Phone'
+  },
+  {
+    value: 'email',
+    label: 'Send to Email'
+  }
+];
 
 export function SendOTP() {
   const [, formAction] = useActionState(sendOTP, initialState);
@@ -29,7 +41,9 @@ export function SendOTP() {
   return (
     <Form action={formAction} onSubmit={withJavaScriptOnSubmit}>
       <WizardSection title="OTP Verification">
-        <RadioButton label="Send to Phone" />
+        <AuthWizardStage title="Send Code" description="How would you like to receive the code?">
+          <RadioGroup name="verificationMethod" defaultValue="email" options={verificationOptions} />
+        </AuthWizardStage>
       </WizardSection>
       <FieldRow>
         <BackButton fullWidth />

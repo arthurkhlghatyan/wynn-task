@@ -34,8 +34,6 @@ export function VerifyOTP() {
         <BackButton fullWidth />
         <SubmitButton fullWidth />
       </FieldRow>
-      <BackButton />
-      <SubmitButton />
     </Form>
   );
 }
