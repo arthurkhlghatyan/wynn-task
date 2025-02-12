@@ -26,5 +26,3 @@ export function Heading({
     </Tag>
   );
 };
-
-export default Heading;

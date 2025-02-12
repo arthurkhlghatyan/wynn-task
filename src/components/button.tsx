@@ -9,7 +9,7 @@ export type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 export function Button({ variant = 'solid', fullWidth, className, children, ...rest }: Props) {
   return (
     <button
-      className={`${sen.className} uppercase border disabled:opacity-30 border-green focus:relative focus:top-1 rounded-sm h-[56px] font-medium transition-all
+      className={`${sen.className} uppercase border disabled:opacity-30 border-green focus:relative focus:top-1 rounded-sm h-[56px] mb-3 font-medium transition-all
         ${variant === "solid"
           ? "bg-green text-white"
           : "text-green bg-transparent"
