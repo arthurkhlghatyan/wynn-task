@@ -6,12 +6,12 @@ type Props = {
   title: string;
   total: number;
   current: number;
-}
+};
 
 export function WizardHeader({ title, total, current }: Props) {
   return (
-    <div className='mb-10'>
-      <div className='flex justify-between items-center w-full mb-6'>
+    <div className="mb-10">
+      <div className="flex justify-between items-center w-full mb-6">
         <Heading>{title}</Heading>
         <Stepper current={current} total={total} />
       </div>

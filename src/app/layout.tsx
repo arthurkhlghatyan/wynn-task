@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import { libreCaslonText } from '@/fonts';
 
-import "./globals.css";
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: "Wynn Resorts",
-  description: "Wynn Al Marjan Island",
+  title: 'Wynn Resorts',
+  description: 'Wynn Al Marjan Island',
 };
 
 export default function RootLayout({

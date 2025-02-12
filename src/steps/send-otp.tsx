@@ -1,28 +1,28 @@
-'use client'
+'use client';
 
-import { FormEvent, startTransition, useActionState } from "react";
-import { sendOTP } from "@/actions/send-otp";
-import { Form } from "@/components/form";
-import { WizardSection } from "@/components/wizard-section";
-import { FieldRow } from "@/components/field-row";
-import { BackButton } from "@/components/back-button";
-import { SubmitButton } from "@/components/submit-button";
-import { AuthWizardStage } from "@/components/auth-wizard-stage";
-import { RadioGroup, Option } from "@/components/radio-group";
+import { FormEvent, startTransition, useActionState } from 'react';
+import { sendOTP } from '@/actions/send-otp';
+import { Form } from '@/components/form';
+import { WizardSection } from '@/components/wizard-section';
+import { FieldRow } from '@/components/field-row';
+import { BackButton } from '@/components/back-button';
+import { SubmitButton } from '@/components/submit-button';
+import { AuthWizardStage } from '@/components/auth-wizard-stage';
+import { RadioGroup, Option } from '@/components/radio-group';
 
 const initialState = {
-  errors: null
-}
+  errors: null,
+};
 
 const verificationOptions: Option[] = [
   {
     value: 'phone',
-    label: 'Send to Phone'
+    label: 'Send to Phone',
   },
   {
     value: 'email',
-    label: 'Send to Email'
-  }
+    label: 'Send to Email',
+  },
 ];
 
 export function SendOTP() {
@@ -36,13 +36,20 @@ export function SendOTP() {
     e.preventDefault();
 
     startTransition(() => formAction(new FormData(e.currentTarget)));
-  }
+  };
 
   return (
     <Form action={formAction} onSubmit={withJavaScriptOnSubmit}>
       <WizardSection title="OTP Verification">
-        <AuthWizardStage title="Send Code" description="How would you like to receive the code?">
-          <RadioGroup name="verificationMethod" defaultValue="email" options={verificationOptions} />
+        <AuthWizardStage
+          title="Send Code"
+          description="How would you like to receive the code?"
+        >
+          <RadioGroup
+            name="verificationMethod"
+            defaultValue="email"
+            options={verificationOptions}
+          />
         </AuthWizardStage>
       </WizardSection>
       <FieldRow>

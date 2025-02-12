@@ -1,18 +1,18 @@
-'use client'
+'use client';
 
-import { FormEvent, startTransition, useActionState, useRef } from "react";
-import { verifyOTP } from "@/actions/verify-otp";
-import { FormWithRef } from "@/components/form";
-import { WizardSection } from "@/components/wizard-section";
-import { FieldRow } from "@/components/field-row";
-import { AuthWizardStage } from "@/components/auth-wizard-stage";
-import { BackButton } from "@/components/back-button";
-import { SubmitButton } from "@/components/submit-button";
-import { OTPInput } from "@/components/otp-input";
+import { FormEvent, startTransition, useActionState, useRef } from 'react';
+import { verifyOTP } from '@/actions/verify-otp';
+import { FormWithRef } from '@/components/form';
+import { WizardSection } from '@/components/wizard-section';
+import { FieldRow } from '@/components/field-row';
+import { AuthWizardStage } from '@/components/auth-wizard-stage';
+import { BackButton } from '@/components/back-button';
+import { SubmitButton } from '@/components/submit-button';
+import { OTPInput } from '@/components/otp-input';
 
 const initialState = {
-  errors: null
-}
+  errors: null,
+};
 
 export function VerifyOTP() {
   const [, formAction] = useActionState(verifyOTP, initialState);
@@ -26,23 +26,36 @@ export function VerifyOTP() {
     e.preventDefault();
 
     startTransition(() => formAction(new FormData(e.currentTarget)));
-  }
+  };
 
   const handleComplete = () => {
     if (formRef.current) {
-      startTransition(() => formAction(new FormData(formRef.current as HTMLFormElement)));
+      startTransition(() =>
+        formAction(new FormData(formRef.current as HTMLFormElement))
+      );
     }
-  }
+  };
 
   const handleResend = () => {
     console.log('resend');
-  }
+  };
 
   return (
-    <FormWithRef ref={formRef} action={formAction} onSubmit={withJavaScriptOnSubmit}>
+    <FormWithRef
+      ref={formRef}
+      action={formAction}
+      onSubmit={withJavaScriptOnSubmit}
+    >
       <WizardSection title="OTP Verification">
-        <AuthWizardStage title="Please check your email." description="We've sent a code to anton@gmail.com">
-          <OTPInput name="otp[]" onComplete={handleComplete} onResend={handleResend} />
+        <AuthWizardStage
+          title="Please check your email."
+          description="We've sent a code to anton@gmail.com"
+        >
+          <OTPInput
+            name="otp[]"
+            onComplete={handleComplete}
+            onResend={handleResend}
+          />
         </AuthWizardStage>
       </WizardSection>
       <FieldRow>

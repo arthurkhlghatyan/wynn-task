@@ -1,19 +1,19 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren } from 'react';
 
 type Props = React.HTMLAttributes<HTMLHeadingElement> & {
-  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  variant?: "primary" | "secondary";
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  variant?: 'primary' | 'secondary';
 };
 
 const variantClasses: Record<string, string> = {
-  primary: "text-2xl sm:text-4xl",
-  secondary: "text-xl",
+  primary: 'text-2xl sm:text-4xl',
+  secondary: 'text-xl',
 };
 
 export function Heading({
-  as = "h1",
-  variant = "primary",
-  className = "",
+  as = 'h1',
+  variant = 'primary',
+  className = '',
   children,
   ...props
 }: PropsWithChildren<Props>) {
@@ -25,4 +25,4 @@ export function Heading({
       {children}
     </Tag>
   );
-};
+}

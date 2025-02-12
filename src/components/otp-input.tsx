@@ -5,13 +5,23 @@ type Props = {
   expectedDigits?: number;
   onComplete: () => void;
   onResend: () => void;
-}
+};
 
-export function OTPInput({ name, expectedDigits = 4, onComplete, onResend }: Props) {
-  const handleInput = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
+export function OTPInput({
+  name,
+  expectedDigits = 4,
+  onComplete,
+  onResend,
+}: Props) {
+  const handleInput = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
     const { value } = event.target;
     if (value.length === 1 && index < expectedDigits) {
-      const nextInput = document.querySelector(`input[name='${name}']:nth-child(${index + 2})`) as HTMLInputElement;
+      const nextInput = document.querySelector(
+        `input[name='${name}']:nth-child(${index + 2})`
+      ) as HTMLInputElement;
       if (nextInput) {
         nextInput.focus();
       } else {
@@ -20,16 +30,21 @@ export function OTPInput({ name, expectedDigits = 4, onComplete, onResend }: Pro
     }
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>, index: number) => {
-    if (event.key === "Backspace" && index > 0 && !event.currentTarget.value) {
-      const prevInput = document.querySelector(`input[name='${name}']:nth-child(${index})`) as HTMLInputElement;
+  const handleKeyDown = (
+    event: React.KeyboardEvent<HTMLInputElement>,
+    index: number
+  ) => {
+    if (event.key === 'Backspace' && index > 0 && !event.currentTarget.value) {
+      const prevInput = document.querySelector(
+        `input[name='${name}']:nth-child(${index})`
+      ) as HTMLInputElement;
       if (prevInput) prevInput.focus();
     }
   };
 
   return (
     <div>
-      <div className='flex gap-3 mb-4'>
+      <div className="flex gap-3 mb-4">
         {Array.from({ length: expectedDigits }).map((_, index) => {
           return (
             <input
@@ -48,7 +63,11 @@ export function OTPInput({ name, expectedDigits = 4, onComplete, onResend }: Pro
         })}
       </div>
       <p className={`${sen.className} text-lightGray`}>
-        Didn't get a code? <a href="#" onClick={onResend} className="underline">Click to resend</a>.
+        Didn't get a code?{' '}
+        <a href="#" onClick={onResend} className="underline">
+          Click to resend
+        </a>
+        .
       </p>
     </div>
   );

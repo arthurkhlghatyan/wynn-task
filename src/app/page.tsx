@@ -1,17 +1,17 @@
-import { cookies } from "next/headers";
-import { PersonalInfo } from "../steps/personal-info";
+import { cookies } from 'next/headers';
+import { PersonalInfo } from '../steps/personal-info';
 import { SendOTP } from '../steps/send-otp';
 import { VerifyOTP } from '../steps/verify-otp';
 
 import { Steps } from '@/steps';
-import { Main } from "@/components/main";
+import { Main } from '@/components/main';
 import { Container } from '@/components/container';
 import { WizardHeader } from '@/components/wizard-header';
 
 export default async function Home() {
   const cookieStore = await cookies();
 
-  const stepCookie = cookieStore.get("step");
+  const stepCookie = cookieStore.get('step');
 
   const step = !!stepCookie ? stepCookie.value : Steps.PersonalInfo;
 

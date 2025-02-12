@@ -1,6 +1,6 @@
-'use server'
+'use server';
 
-import { moveStep } from '../steps'
+import { moveStep } from '../steps';
 
 export async function goBack() {
   await moveStep('back');

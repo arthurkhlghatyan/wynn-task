@@ -1,7 +1,7 @@
-'use server'
+'use server';
 
 import { redirect } from 'next/navigation';
-import { z } from 'zod'
+import { z } from 'zod';
 
 import { reset } from '@/steps';
 
@@ -11,20 +11,20 @@ const schema = z.object({
 
 export async function verifyOTP(prevState: unknown, formData: FormData) {
   const dictionary = {
-    otp: formData.getAll('otp[]')
-  }
+    otp: formData.getAll('otp[]'),
+  };
 
   const { error, data } = schema.safeParse(dictionary);
 
   if (!!error) {
-    return error.flatten().fieldErrors
+    return error.flatten().fieldErrors;
   }
 
   // Mocked OTP implementation
   const mockOtp = '1234';
 
   if (data.otp.join('') !== mockOtp) {
-    return { errors: { otp: 'Invalid otp' } }
+    return { errors: { otp: 'Invalid otp' } };
   }
 
   await reset();

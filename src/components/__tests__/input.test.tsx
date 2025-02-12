@@ -1,21 +1,21 @@
-import { vi, expect, test } from 'vitest'
-import { render, screen } from '@testing-library/react'
-import { Input } from '@/components/input'
+import { vi, expect, test } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { Input } from '@/components/input';
 
-vi.mock("next/font/google", () => ({
+vi.mock('next/font/google', () => ({
   Sen: () => ({
     style: {
-      fontFamily: "mocked",
+      fontFamily: 'mocked',
     },
   }),
   Libre_Caslon_Text: () => ({
     style: {
-      fontFamily: "mocked",
+      fontFamily: 'mocked',
     },
   }),
 }));
 
 test('Input renders properly', () => {
-  render(<Input placeholder='Hello World!' />)
+  render(<Input placeholder="Hello World!" />);
   expect(screen.getByPlaceholderText('Hello World!')).toBeDefined();
-})
+});

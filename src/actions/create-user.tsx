@@ -1,8 +1,7 @@
-'use server'
+'use server';
 
-
-import { z } from 'zod'
-import { moveStep } from '../steps'
+import { z } from 'zod';
+import { moveStep } from '../steps';
 
 const schema = z.object({
   // Personal information
@@ -22,13 +21,12 @@ export async function createUser(_prevState: unknown, formData: FormData) {
   const { error } = schema.safeParse(dictionary);
 
   if (!!error) {
-    return error.flatten().fieldErrors
+    return error.flatten().fieldErrors;
   }
 
   await moveStep('next');
 
-
   return {
-    errors: null
-  }
+    errors: null,
+  };
 }

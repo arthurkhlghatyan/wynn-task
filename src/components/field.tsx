@@ -1,5 +1,5 @@
-import { PropsWithChildren } from "react";
-import Image from "next/image";
+import { PropsWithChildren } from 'react';
+import Image from 'next/image';
 
 type Props = {
   id: string;
@@ -7,7 +7,7 @@ type Props = {
   info?: string;
   required?: boolean;
   className?: string;
-}
+};
 
 export function Field({
   id,
@@ -15,14 +15,15 @@ export function Field({
   info,
   required = false,
   className,
-  children
+  children,
 }: PropsWithChildren<Props>) {
   return (
     <div className={`${className} mb-6`}>
       <label
         htmlFor={id}
         data-testid="field-label"
-        className="text-sm mb-3 flex justify-between items-center w-full">
+        className="text-sm mb-3 flex justify-between items-center w-full"
+      >
         <div>
           {label}
           &nbsp;

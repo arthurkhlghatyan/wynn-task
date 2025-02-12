@@ -1,7 +1,7 @@
-'use server'
+'use server';
 
 import { moveStep } from '@/steps';
-import { z } from 'zod'
+import { z } from 'zod';
 
 const schema = z.object({
   verificationMethod: z.enum(['email', 'phone']),
@@ -13,12 +13,12 @@ export async function sendOTP(prevState: unknown, formData: FormData) {
   const { error } = schema.safeParse(dictionary);
 
   if (!!error) {
-    return error.flatten().fieldErrors
+    return error.flatten().fieldErrors;
   }
 
   await moveStep('next');
 
   return {
-    errors: null
-  }
+    errors: null,
+  };
 }

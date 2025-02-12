@@ -1,21 +1,21 @@
-import { expect, test, vi } from 'vitest'
-import { render, screen } from '@testing-library/react'
-import { SubmitButton } from '@/components/submit-button'
+import { expect, test, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { SubmitButton } from '@/components/submit-button';
 
-vi.mock("next/font/google", () => ({
+vi.mock('next/font/google', () => ({
   Sen: () => ({
     style: {
-      fontFamily: "mocked",
+      fontFamily: 'mocked',
     },
   }),
   Libre_Caslon_Text: () => ({
     style: {
-      fontFamily: "mocked",
+      fontFamily: 'mocked',
     },
   }),
 }));
 
 test('SubmitButton', () => {
-  render(<SubmitButton />)
+  render(<SubmitButton />);
   expect(screen.getByText('Next')).toBeDefined();
-})
+});
