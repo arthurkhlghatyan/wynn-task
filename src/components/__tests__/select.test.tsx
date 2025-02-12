@@ -29,7 +29,7 @@ const options = [
 test('Select renders properly', () => {
   render(<Select placeholder='Hello World!' options={options} />)
 
-  expect(screen.getByPlaceholderText('Hello World!')).toBeDefined();
+  expect(screen.getByText('Hello World!')).toBeDefined();
 })
 
 test('Select renders options', () => {

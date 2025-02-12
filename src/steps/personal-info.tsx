@@ -1,4 +1,5 @@
 import { createUser } from "@/actions/create-user";
+import { Form } from "@/components/form";
 import { WizardSection } from '@/components/wizard-section';
 import { FieldRow } from '@/components/field-row';
 import { Field } from '@/components/field';
@@ -29,7 +30,7 @@ const genders: Option[] = [
 
 export function PersonalInfo() {
   return (
-    <form action={createUser}>
+    <Form action={createUser}>
       <WizardSection title="Personal Info">
         <FieldRow>
           <Field id="firstName" label="First Name" info="Enter first name..." required>
@@ -48,16 +49,16 @@ export function PersonalInfo() {
       </WizardSection>
       <WizardSection title="Contact Details">
         <Field id="email" label="Email" info="Enter email address..." required>
-          <Input name="email" required autoComplete="off" placeholder="Enter email address..." />
+          <Input type="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" autoComplete="off" placeholder="Enter email address..." />
         </Field>
         <Field id="phoneNumber" label="Phone Number" info="+971 (__) - ____" required>
           <PhoneInput name="phoneNumber" autoComplete="off" required placeholder="Enter your phone number..." />
         </Field>
-        <Checkbox>
+        <Checkbox required>
           <TermsText />
         </Checkbox>
       </WizardSection>
       <SubmitButton />
-    </form>
+    </Form>
   );
 }
