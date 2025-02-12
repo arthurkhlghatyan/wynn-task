@@ -16,6 +16,19 @@ const schema = z.object({
   phoneNumber: z.string(),
 });
 
-export async function createUser(formData: FormData) {
+export async function createUser(_prevState: unknown, formData: FormData) {
+  const dictionary = Object.fromEntries(formData.entries());
+
+  const { error } = schema.safeParse(dictionary);
+
+  if (!!error) {
+    return error.flatten().fieldErrors
+  }
+
   await moveStep('next');
+
+
+  return {
+    errors: null
+  }
 }

@@ -1,3 +1,6 @@
+'use client'
+
+import { FormEvent, startTransition, useActionState } from 'react';
 import { createUser } from "@/actions/create-user";
 import { Form } from "@/components/form";
 import { WizardSection } from '@/components/wizard-section';
@@ -28,9 +31,25 @@ const genders: Option[] = [
   }
 ];
 
+const initialState = {
+  errors: null
+}
+
 export function PersonalInfo() {
+  const [_, formAction] = useActionState(createUser, initialState);
+
+  // In the new versions of React action trigger resets input values
+  // But we need them to be preserved in case there are validation errors
+  // However we still want to support progressive enhancement so custom
+  // onSubmit handler will be used combined with action prop as a fallback
+  const withJavaScriptOnSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    startTransition(() => formAction(new FormData(e.currentTarget)));
+  }
+
   return (
-    <Form action={createUser}>
+    <Form action={formAction} onSubmit={withJavaScriptOnSubmit}>
       <WizardSection title="Personal Info">
         <FieldRow>
           <Field id="firstName" label="First Name" info="Enter first name..." required>
@@ -49,7 +68,7 @@ export function PersonalInfo() {
       </WizardSection>
       <WizardSection title="Contact Details">
         <Field id="email" label="Email" info="Enter email address..." required>
-          <Input type="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" autoComplete="off" placeholder="Enter email address..." />
+          <Input type="email" name="email" required autoComplete="off" placeholder="Enter email address..." />
         </Field>
         <Field id="phoneNumber" label="Phone Number" info="+971 (__) - ____" required>
           <PhoneInput name="phoneNumber" autoComplete="off" required placeholder="Enter your phone number..." />

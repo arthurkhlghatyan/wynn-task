@@ -8,5 +8,18 @@ const schema = z.object({
 });
 
 export async function sendOTP(formData: FormData) {
+  const dictionary = Object.fromEntries(formData.entries());
+
+  const { error } = schema.safeParse(dictionary);
+
+  if (!!error) {
+    return error.flatten().fieldErrors
+  }
+
   await moveStep('next');
+
+
+  return {
+    errors: null
+  }
 }

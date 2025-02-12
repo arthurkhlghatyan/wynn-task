@@ -7,6 +7,15 @@ const schema = z.object({
 });
 
 export async function verifyOTP(formData: FormData) {
-  // Fetch contact information
-  // Send user an OTP
+  const dictionary = Object.fromEntries(formData.entries());
+
+  const { error } = schema.safeParse(dictionary);
+
+  if (!!error) {
+    return error.flatten().fieldErrors
+  }
+
+  return {
+    errors: null
+  }
 }
