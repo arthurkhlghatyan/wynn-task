@@ -15,6 +15,11 @@ const schema = z.object({
   phoneNumber: z.string(),
 });
 
+
+/**
+ * TODO:
+ * Save/Update data in session for other steps to access  
+ */
 export async function createUser(_prevState: unknown, formData: FormData) {
   const dictionary = Object.fromEntries(formData.entries());
 
