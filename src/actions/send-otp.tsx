@@ -7,7 +7,7 @@ const schema = z.object({
   verificationMethod: z.enum(['email', 'phone']),
 });
 
-export async function sendOTP(formData: FormData) {
+export async function sendOTP(prevState: unknown, formData: FormData) {
   const dictionary = Object.fromEntries(formData.entries());
 
   const { error } = schema.safeParse(dictionary);

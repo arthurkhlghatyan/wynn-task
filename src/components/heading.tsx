@@ -6,7 +6,7 @@ type Props = React.HTMLAttributes<HTMLHeadingElement> & {
 };
 
 const variantClasses: Record<string, string> = {
-  primary: "text-4xl",
+  primary: "text-2xl sm:text-4xl",
   secondary: "text-xl",
 };
 

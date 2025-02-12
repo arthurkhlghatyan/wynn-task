@@ -15,7 +15,7 @@ export function WizardHeader({ title, total, current }: Props) {
         <Heading>{title}</Heading>
         <Stepper current={current} total={total} />
       </div>
-      <div className={`${sen.className} text-sm sm:text-base`}>
+      <div className={`${sen.className} text-xs sm:text-base`}>
         Please enter below information to create your account
       </div>
     </div>
