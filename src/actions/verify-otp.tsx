@@ -17,17 +17,20 @@ export async function verifyOTP(prevState: unknown, formData: FormData) {
   const { error, data } = schema.safeParse(dictionary);
 
   if (!!error) {
-    return error.flatten().fieldErrors;
+    return { message: 'Invalid otp. Try another number or resend.' };
   }
 
   // Mocked OTP implementation
   const mockOtp = '1234';
 
   if (data.otp.join('') !== mockOtp) {
-    return { errors: { otp: 'Invalid otp' } };
+    return { message: 'Invalid otp. Try another number or resend.' };
   }
 
   await reset();
 
   redirect('/welcome');
+
+  // To suppress typescript error
+  return { message: null };
 }

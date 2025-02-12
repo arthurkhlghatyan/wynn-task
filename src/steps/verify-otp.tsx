@@ -9,13 +9,14 @@ import { AuthWizardStage } from '@/components/auth-wizard-stage';
 import { BackButton } from '@/components/back-button';
 import { SubmitButton } from '@/components/submit-button';
 import { OTPInput } from '@/components/otp-input';
+import { ErrorMessage } from '@/components/error-message';
 
 const initialState = {
-  errors: null,
+  message: null,
 };
 
 export function VerifyOTP() {
-  const [, formAction] = useActionState(verifyOTP, initialState);
+  const [{ message }, formAction] = useActionState(verifyOTP, initialState);
   const formRef = useRef<HTMLFormElement>(null);
 
   // In the new versions of React action trigger resets input values
@@ -56,6 +57,7 @@ export function VerifyOTP() {
             onComplete={handleComplete}
             onResend={handleResend}
           />
+          {message !== null && <ErrorMessage>{message}</ErrorMessage>}
         </AuthWizardStage>
       </WizardSection>
       <FieldRow>
