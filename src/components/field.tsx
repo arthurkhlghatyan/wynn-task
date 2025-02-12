@@ -36,6 +36,7 @@ export function Field({
               role="tooltip"
               title={info}
               alt="Info"
+              className='w-auto h-auto'
               width={14}
               height={14}
               priority
