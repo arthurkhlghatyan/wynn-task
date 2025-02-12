@@ -5,6 +5,7 @@ import { verifyOTP } from "@/actions/verify-otp";
 import { Form } from "@/components/form";
 import { WizardSection } from "@/components/wizard-section";
 import { FieldRow } from "@/components/field-row";
+import { AuthWizardStage } from "@/components/auth-wizard-stage";
 import { BackButton } from "@/components/back-button";
 import { SubmitButton } from "@/components/submit-button";
 
@@ -28,7 +29,9 @@ export function VerifyOTP() {
   return (
     <Form action={formAction} onSubmit={withJavaScriptOnSubmit}>
       <WizardSection title="OTP Verification">
-        Section content
+        <AuthWizardStage title="Please check your email." description="We've sent a code to anton@gmail.com">
+          Content
+        </AuthWizardStage>
       </WizardSection>
       <FieldRow>
         <BackButton fullWidth />
