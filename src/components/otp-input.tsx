@@ -13,6 +13,8 @@ export function OTPInput({
   onComplete,
   onResend,
 }: Props) {
+  const validationClassName = '[&:user-invalid]:border-red';
+
   const handleInput = (
     event: React.ChangeEvent<HTMLInputElement>,
     index: number
@@ -57,7 +59,7 @@ export function OTPInput({
               max={9}
               onChange={(event) => handleInput(event, index)}
               onKeyDown={(event) => handleKeyDown(event, index)}
-              className="[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-center outline-none border rounded-lg border-brown text-brown p-2 w-16 text-5xl shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)]"
+              className={`[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none text-center outline-none border rounded-lg border-brown text-brown p-2 w-16 text-5xl shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] ${validationClassName}`}
             />
           );
         })}
