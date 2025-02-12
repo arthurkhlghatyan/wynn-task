@@ -5,6 +5,8 @@ import { Field } from '@/components/field';
 import { Input } from '@/components/input';
 import { Select, Option } from '@/components/select';
 import { PhoneInput } from '@/components/phone-input';
+import { Checkbox } from "@/components/checkbox";
+import { TermsText } from '@/components/terms-text';
 import { SubmitButton } from "@/components/submit-button";
 
 import countriesInJson from '@/countries.json'
@@ -51,6 +53,9 @@ export function PersonalInfo() {
         <Field id="phoneNumber" label="Phone Number" info="+971 (__) - ____" required>
           <PhoneInput name="phoneNumber" autoComplete="off" required placeholder="Enter your phone number..." />
         </Field>
+        <Checkbox>
+          <TermsText />
+        </Checkbox>
       </WizardSection>
       <SubmitButton />
     </form>
