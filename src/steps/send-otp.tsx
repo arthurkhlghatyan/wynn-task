@@ -7,6 +7,7 @@ import { WizardSection } from "@/components/wizard-section";
 import { FieldRow } from "@/components/field-row";
 import { BackButton } from "@/components/back-button";
 import { SubmitButton } from "@/components/submit-button";
+import { RadioButton } from "@/components/radio-button";
 
 const initialState = {
   errors: null
@@ -28,7 +29,7 @@ export function SendOTP() {
   return (
     <Form action={formAction} onSubmit={withJavaScriptOnSubmit}>
       <WizardSection title="OTP Verification">
-        Section content
+        <RadioButton label="Send to Phone" />
       </WizardSection>
       <FieldRow>
         <BackButton fullWidth />
