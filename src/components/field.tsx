@@ -38,6 +38,7 @@ export function Field({
               alt="Info"
               width={14}
               height={14}
+              priority
             />
           </div>
         )}
