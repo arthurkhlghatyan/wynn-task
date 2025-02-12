@@ -1,10 +1,10 @@
 'use client'
 
 import { goBack } from '@/actions/go-back'
-import { Button } from './button';
+import { Button, Props } from './button';
 
-export function BackButton() {
+export function BackButton(props: Props) {
   return (
-    <Button variant='outline' type='button' onClick={() => goBack()}>Back</Button>
+    <Button variant='outline' type='button' onClick={() => goBack()} {...props}>Back</Button>
   )
 }

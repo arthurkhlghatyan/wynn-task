@@ -4,6 +4,7 @@ import { FormEvent, startTransition, useActionState } from "react";
 import { sendOTP } from "@/actions/send-otp";
 import { Form } from "@/components/form";
 import { WizardSection } from "@/components/wizard-section";
+import { FieldRow } from "@/components/field-row";
 import { BackButton } from "@/components/back-button";
 import { SubmitButton } from "@/components/submit-button";
 
@@ -29,8 +30,10 @@ export function SendOTP() {
       <WizardSection title="OTP Verification">
         Section content
       </WizardSection>
-      <BackButton />
-      <SubmitButton />
+      <FieldRow>
+        <BackButton fullWidth />
+        <SubmitButton fullWidth />
+      </FieldRow>
     </Form>
   );
 }

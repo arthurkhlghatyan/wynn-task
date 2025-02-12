@@ -1,6 +1,6 @@
 import { sen } from '@/fonts';
 
-type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+export type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: 'solid' | 'outline';
   fullWidth?: boolean;
 };
