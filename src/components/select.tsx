@@ -16,7 +16,7 @@ export function Select({
   options,
   ...rest
 }: Props) {
-  const validationClassName = '[&:user-invalid]:border-red';
+  const validationClassName = '[&:user-invalid]:border-red invalid:text-placeholderGray';
 
   return (
     <select

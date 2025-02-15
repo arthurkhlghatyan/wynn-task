@@ -10,7 +10,7 @@ export function Input({ name, className, ...rest }: Props) {
       {...rest}
       id={name}
       name={name}
-      className={`${sen.className} ${validationClassName} rounded-sm border-2 border-solid border-darkGray outline-none w-full px-5 py-4 ${className}`}
+      className={`${sen.className} ${validationClassName} placeholder-placeholderGray rounded-sm border-2 border-solid border-darkGray outline-none w-full px-5 py-4 ${className}`}
     />
   );
 }

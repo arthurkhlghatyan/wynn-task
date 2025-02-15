@@ -20,6 +20,7 @@ export default {
 
       darkGray: '#E8E9E9',
       lightGray: '#667085',
+      placeholderGray: '#999999'
     },
   },
 
